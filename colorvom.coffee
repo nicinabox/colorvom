@@ -12,7 +12,10 @@ if Meteor.isClient
     window.location.hash = color
 
   Meteor.startup ->
-    cycle()
+    if window.location.hash
+      setBackgroundColor(window.location.hash)
+    else
+      cycle()
 
     window.onhashchange = ->
       setBackgroundColor(window.location.hash)
